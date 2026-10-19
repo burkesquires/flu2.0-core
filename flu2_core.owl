@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.obolibrary.org/obo/flu2/core#"
+     xml:base="http://purl.obolibrary.org/obo/flu2/core"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:flu2core="http://purl.obolibrary.org/obo/flu2/core#">
+    <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/flu2/core">
+        <rdfs:label>FLU 2.0 Core Ontology (MIREOT self-contained)</rdfs:label>
+        <owl:versionInfo>0.1.0</owl:versionInfo>
+        <rdfs:comment>Self-contained MIREOT extract of the terms required for the influenza A lifecycle Core. Includes defined-class patterns for the major processes. No new FLU identifiers are minted for processes or proteins.</rdfs:comment>
+        <dc:date xmlns:dc="http://purl.org/dc/elements/1.1/">2026-10-19</dc:date>
+    </owl:Ontology>
+
+    <!-- ========== MIREOT'd upper-level and relations ========== -->
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000001">
+        <rdfs:label>entity</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000015">
+        <rdfs:label>process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+    </owl:Class>
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002090">
+        <rdfs:label>precedes</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000066">
+        <rdfs:label>occurs in</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000057">
+        <rdfs:label>has participant</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- ========== MIREOT'd GO process terms (key lifecycle steps) ========== -->
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0019062">
+        <rdfs:label>viral attachment to host cell</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0046718">
+        <rdfs:label>viral entry into host cell via endocytosis</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0039654">
+        <rdfs:label>viral membrane fusion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0019061">
+        <rdfs:label>viral uncoating</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0075732">
+        <rdfs:label>viral penetration into host nucleus</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0019083">
+        <rdfs:label>viral transcription</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0019081">
+        <rdfs:label>viral protein synthesis</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0019079">
+        <rdfs:label>viral genome replication</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0019076">
+        <rdfs:label>viral release from host cell</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+
+    <!-- ========== Defined-class patterns (influenza-generic) ========== -->
+    <!-- These specialize the GO terms without minting new top-level FLU identifiers -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/flu2/core#Influenza_A_attachment">
+        <rdfs:label>influenza A virus attachment</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0019062"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_11320"/>
+                                    <!-- Influenza A virus -->
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <flu2core:reactomeXref>R-HSA-168272</flu2core:reactomeXref>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/flu2/core#Influenza_A_nuclear_import">
+        <rdfs:label>influenza A vRNP nuclear import</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0075732"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <flu2core:reactomeXref>R-HSA-168271</flu2core:reactomeXref>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/flu2/core#Influenza_A_release">
+        <rdfs:label>influenza A virus release</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0019076"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <flu2core:reactomeXref>R-HSA-168298</flu2core:reactomeXref>
+    </owl:Class>
+
+    <!-- Annotation properties -->
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/flu2/core#reactomeXref">
+        <rdfs:label>Reactome cross-reference</rdfs:label>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/flu2/core#evidenceNote">
+        <rdfs:label>Evidence note</rdfs:label>
+    </owl:AnnotationProperty>
+
+    <!-- NCBITaxon stub for Influenza A -->
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_11320">
+        <rdfs:label>Influenza A virus</rdfs:label>
+    </owl:Class>
+
+</rdf:RDF>
