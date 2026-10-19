@@ -11,11 +11,10 @@ Reuse-first design; no new top-level identifiers are minted for core processes o
 | File | Description |
 |------|-------------|
 | `flu2_core.owl` | Self-contained OWL (MIREOT extract + defined-class patterns) |
-| `reuse_matrix.md` | Mapping of internal labels to external identifiers |
-| `architecture.md` | Relationship to the PR8/A549 Alpha module |
-| `competency_questions.md` | Priority questions the Core supports |
+| `docs/reuse_matrix.md` | Mapping of internal labels to external identifiers |
+| `docs/architecture.md` | Relationship to the PR8/A549 Alpha module |
+| `docs/competency_questions.md` | Priority questions the Core supports |
 | `LICENSE` | CC-BY 4.0 |
-
 ## Quick start
 
 1. Load `flu2_core.owl` in [Protégé](https://protege.stanford.edu/).
