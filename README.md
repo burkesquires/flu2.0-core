@@ -31,7 +31,7 @@ Reuse-first design; no new top-level identifiers are minted for core processes o
 
 If you use this ontology, please cite:
 
-> Squires, R. B. et al. (2026). FLU 2.0 Core Ontology (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+> Squires, R. B. et al. (2026). FLU 2.0 Core Ontology (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.23483442
 
 (DOI will be assigned on Zenodo deposit.)
 
